@@ -1,0 +1,12 @@
+<h2>Current reservations</h2>
+<% if @reservations.length < 1 %>
+  <h3>No reservations at this time</h3>
+<% else %>
+  <% @reservations.each do |reservation| %>
+    <h4>Reservation for <%= reservation.name %></h4>
+    <p><%= reservation.date.strftime('%A %B %e %Y') %> at <%= reservation.timeslot %>:00</p>
+    <p>Table for <%= reservation.table.seats %></p>  
+  <% end %>
+<% end %>
+
+<p><a href="/reservations/new">Make a new reservation</a></p>
