@@ -10,7 +10,13 @@
 <% flash.each do |key, value| %>
   <div class="alert alert-<%= key %>"><%= value %></div>
 <% end %>
-<%= yield %>
 
+<div id="nav">
+  <a href="/reservations">All reservations</a> |
+  <a href="/reservations/new">Add a reservation</a> 
+</div>
+<div id="container">
+  <%= yield %>
+</div>
 </body>
 </html>

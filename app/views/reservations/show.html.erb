@@ -1,7 +1,8 @@
-<%= @reservation.name %>
-on <%= @reservation.date %> at 
+<h2>Reservation for <%= @reservation.name %>: </h2>
+<p>Date: <%= @reservation.date.strftime('%A %B %e, %Y ') %> at 
 <%= @reservation.timeslot %>:00
-
-TAble number: <%= @reservation.table_id %> for <%= @reservation.table.seats %>
-
+</p>
+<p>
+Table for <%= @reservation.table.seats %>
+</p>
 

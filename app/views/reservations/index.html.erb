@@ -3,9 +3,10 @@
   <h3>No reservations at this time</h3>
 <% else %>
   <% @reservations.each do |reservation| %>
-    <h4>Reservation for <%= reservation.name %></h4>
+    <h3>Reservation for <%= reservation.name %></h3>
     <p><%= reservation.date.strftime('%A %B %e %Y') %> at <%= reservation.timeslot %>:00</p>
     <p>Table for <%= reservation.table.seats %></p>  
+    <hr>
   <% end %>
 <% end %>
 

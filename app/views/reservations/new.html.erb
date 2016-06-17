@@ -1,17 +1,20 @@
 <%= form_tag '/reservations', method: :post do %>
-  <div>
+  <div class="form-section">
     <%=label_tag :name, "Name" %>
-    <%= text_field_tag :name %>  
+    <br /><%= text_field_tag :name %>  
   </div>
-  <div>
-    date: <%= date_field_tag :date, Date.current.strftime('%d/%m/%Y') %>
+  <div class="form-section">
+    <%=label_tag :date, "Date" %>
+    <br /><%= date_field_tag :date, Date.current.strftime('%d/%m/%Y') %>
   </div>
-  <div>
-    time: <%= number_field_tag :timeslot, '20', in: 1..24 %>
+  <div class="form-section">
+    <%=label_tag :timeslot, "Time" %> 
+    <br /><%= number_field_tag :timeslot, '20', in: 1..24 %>
   </div>
   
-  <div>
-    Seats: <%= number_field_tag :seats, nil, min: 2, max: 6, step:2 %>
+  <div class="form-section">
+    <%=label_tag :seats, "Seats" %> 
+    <br /><%= number_field_tag :seats, nil, min: 2, max: 6, step:2 %>
   </div>
 
   <%= submit_tag %>
