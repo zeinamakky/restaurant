@@ -36,7 +36,7 @@ class ReservationsController < ApplicationController
       @reservation.save
       redirect_to "/reservations/#{@reservation.id}"
     else 
-      flash[:warning] = "that table is taken at that time"
+      flash[:warning] = "There are no tables with your desired seats available at that timeslot. Please try a different day or time."
       redirect_to "/reservations/new"
     end
   
