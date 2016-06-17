@@ -1,28 +1,7 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a very basic restaurant reservation app I created as an exercise for an interview. The premise is you can make reservations at this restaurant on the hour at every hour. Each reservation would be for an hour-long lunch or dinner.
+The tables are set in place and won't be moved to accommodate larger parties.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+There is a seed file for the tables. Run rake db:seed in the terminal to get those tables in.
+Once that is done, you can add a new reservation and pick the number of seats you'll need. If no tables are available for your desired timeslot, you will be notified and asked to change your reservation.
