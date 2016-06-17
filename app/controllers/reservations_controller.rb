@@ -36,7 +36,7 @@ class ReservationsController < ApplicationController
       @reservation.save
       redirect_to "/reservations/#{@reservation.id}"
     else 
-      flash[:success] = "that table is taken at that time"
+      flash[:warning] = "that table is taken at that time"
       redirect_to "/reservations/new"
     end
   

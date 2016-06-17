@@ -13,10 +13,10 @@
  *= require_tree .
  *= require_self
  */
-#nav {
+#navbar {
   width:100%;
   background:#ccc;
-  height:40px;
+  height:60px;
   font-family: arial;
   font-size: 18px;
   text-transform: uppercase;
@@ -32,7 +32,7 @@
   margin-left: 40px;
 }
 .form-section {
-  height:50px;
+  height:70px;
   font-family: arial;
   font-size:14px;
 }
