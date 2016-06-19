@@ -14,32 +14,30 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    tables = Table.where(seats: params[:seats])   
-    if Reservation.where(table_id: tables[0].id).where(date: params[:date]).where(timeslot: params[:timeslot]).length == 0
-      @reservation = Reservation.new(
-      name: params[:name],
-      date: params[:date],
-      timeslot: params[:timeslot].to_i,
-      table_id: tables[0].id
-      )
-
-      @reservation.save
-      redirect_to "/reservations/#{@reservation.id}"
-
-    elsif Reservation.where(table_id: tables[1].id).where(date: params[:date]).where(timeslot: params[:timeslot]).length == 0
-      @reservation = Reservation.new(
-      name: params[:name],
-      date: params[:date],
-      timeslot: params[:timeslot].to_i,
-      table_id: tables[1].id
-      )
-      @reservation.save
-      redirect_to "/reservations/#{@reservation.id}"
+    tables = Table.where(seats: params[:seats])
+    rezzie = 0   
+    tables.each do |table|
+      if Reservation.where(table_id: table.id).where(date: params[:date]).where(timeslot: params[:timeslot]).length == 0
+        @reservation = Reservation.new(
+        name: params[:name],
+        date: params[:date],
+        timeslot: params[:timeslot].to_i,
+        table_id: table.id
+        )
+        @reservation.save
+        rezzie += 1
+        break if @reservation.save
+      
+      end
+    end 
+    
+    if rezzie == 1
+        redirect_to "/reservations/#{@reservation.id}"
     else 
       flash[:warning] = "There are no tables with your desired seats available at that timeslot. Please try a different day or time."
       redirect_to "/reservations/new"
+
     end
-  
     
   end
 
